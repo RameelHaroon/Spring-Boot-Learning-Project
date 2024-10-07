@@ -28,6 +28,10 @@ public class RunRepository {
             //.orElse(null);
     }
 
+    void addRun(Run run){
+        runs.add(run);
+    }
+
     @PostConstruct
     private void init() {
         runs.add(new Run(1,

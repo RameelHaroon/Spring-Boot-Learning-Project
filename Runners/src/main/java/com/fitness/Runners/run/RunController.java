@@ -1,10 +1,8 @@
 package com.fitness.Runners.run;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
@@ -40,5 +38,10 @@ public class RunController {
         }
 
         return run.get();
+    }
+
+    @PostMapping("/create")
+    void createRun(@RequestBody Run run){
+        runRepository.addRun(run);
     }
 }
