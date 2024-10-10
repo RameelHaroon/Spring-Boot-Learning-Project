@@ -44,4 +44,13 @@ public class RunController {
     void createRun(@RequestBody Run run){
         runRepository.addRun(run);
     }
+
+    @PutMapping("/update/{id}")
+    void updateRun(@RequestBody Run run, @PathVariable Integer id){
+        runRepository.update(run, id);
+    }
+
+    @DeleteMapping("/delete/{id}"){
+        runRepository.delete(id);
+    }
 }
