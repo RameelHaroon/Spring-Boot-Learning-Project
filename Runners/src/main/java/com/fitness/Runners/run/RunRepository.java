@@ -8,7 +8,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-//import java.util.stream;
 
 
 @Repository
@@ -22,24 +21,24 @@ public class RunRepository {
 
     Optional<Run> findById(Integer id) {
         return runs.stream()
-            .filter(run -> run.id() == id)
-            .findFirst();
-            //.get()
-            //.orElse(null);
+                .filter(run -> run.id() == id)
+                .findFirst();
+        //.get()
+        //.orElse(null);
     }
 
-    void addRun(Run run){
+    void addRun(Run run) {
         runs.add(run);
     }
 
-    void update(Run run, Integer id){
+    void update(Run run, Integer id) {
         Optional<Run> existingObj = findById(id);
-        if(existingObj.isPresent()){
+        if (existingObj.isPresent()) {
             runs.set(runs.indexOf(existingObj.get()), run);
         }
     }
 
-    void delete(Integer id){
+    void delete(Integer id) {
         runs.removeIf(run -> run.id().equals(id));
     }
 
